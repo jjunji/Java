@@ -1,0 +1,9 @@
+package snippet;
+
+public class Snippet {
+	public static void main(String[] args) {
+		System.out.println("t1의 채널 값은 : " + t1.channel);
+				System.out.println("t2의 채널 값은 : " + t2.channel);
+	}
+}
+
