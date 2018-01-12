@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="Parent"/>
 <fullyQualifiedTypeName name="Child"/>
 <fullyQualifiedTypeName name="Point3D"/>
+<fullyQualifiedTypeName name="FireEngine"/>
+<fullyQualifiedTypeName name="Parent"/>
 </qualifiedTypeNameHistroy>

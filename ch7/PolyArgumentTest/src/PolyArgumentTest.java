@@ -11,7 +11,7 @@ public class PolyArgumentTest {
 		System.out.println("현재 남은 돈은 " + b.money + "만원입니다.");
 		System.out.println(b.bonusPoint);
 	}
-	
+		
 }
 
 class Product{
