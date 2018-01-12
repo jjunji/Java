@@ -4,4 +4,8 @@
 <fullyQualifiedTypeName name="Point3D"/>
 <fullyQualifiedTypeName name="FireEngine"/>
 <fullyQualifiedTypeName name="Parent"/>
+<fullyQualifiedTypeName name="Fighter"/>
+<fullyQualifiedTypeName name="DropShip"/>
+<fullyQualifiedTypeName name="Marine"/>
+<fullyQualifiedTypeName name="SCV"/>
 </qualifiedTypeNameHistroy>
