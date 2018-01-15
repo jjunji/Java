@@ -1,0 +1,17 @@
+class A{
+	void autoPlay(I i){
+		i.play();
+	}
+}
+
+interface I{
+	public abstract void play();
+}
+
+class B implements I{
+	
+}
+
+public class InterfaceTest2 {
+
+}
