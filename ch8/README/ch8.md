@@ -153,3 +153,168 @@ public class ExceptionTest5 {
 
 ***
 
+**finally 블럭**
+
+finally블럭은 try-catch문과 함께 예외의 발생여부에 상관없이 실행되어야할 코드를 포함시킬 목적으로 사용된다. try-catch문의 끝에 선택적으로 덧붙여 사용할 수 있으며,
+try-catch-finally 순서로 구성된다.
+
+예외가 발생한 경우에는
+```
+try -> catch -> finally
+```
+예외가 발생하지 않은 경우에는
+```
+try -> finally
+```
+
+```java
+public class FinallyTest3 {
+	public static void main(String[] args) {
+		method1();
+		System.out.println("method1() 의 수행을 마치고 main메서드로 돌아왔습니다.");
+	}
+	
+	static void method1(){
+		try {
+			System.out.println("method1()이 호출되었습니다.");
+			return;
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally{
+			System.out.println("method1()의 finally블럭이 실행되었습니다.");
+		}
+	}
+}
+```
+결과
+```
+method1()이 호출되었습니다.
+method1()의 finally블럭이 실행되었습니다.
+method1()의 수행을 마치고 main메서드로 돌아왔습니다.
+```
+try블럭에서 return문이 실행되는 경우에도 finally 블럭의 문장들이 먼저 실행된 후에,
+현재 실행 중인 메서드를 종료한다.
+마찬가지로 catch블럭의 문장 수행 중에 return문을 만나도 finally블럭의 문장들은 수행된다.
+
+***
+
+**자동 자원 반환 - try-with-resources문**
+
+try-with-resources문의 괄호( ) 안에 객체를 생성하는 문장을 넣으면, 이 객체는 따로 close( )를 호출하지 않아도 try 블럭을 벗어나는 순간 자동적으로 close( ) 가 호출된다.
+그 다음에 catch블럭 또는 finally블럭이 수행된다.
+
+```java
+public interface AutoCloseable{
+	void close() throws Exception;
+}
+```
+자동으로 객체의 close( ) 가 호출될 수 있으려면, 클래스가 AutoCloseable이라는 인터페이스를 구현한 것이어야만 한다.
+
+```java
+import javax.xml.ws.WebServiceException;
+
+class TryWithResourceEx {
+	public static void main(String[] args) {
+		try (CloseableResource cr = new CloseableResource()){
+			cr.exceptionWork(false);
+		} catch (WorkException e) {
+			e.printStackTrace();
+		} catch (CloseException e){
+			e.printStackTrace();
+		}
+		
+		System.out.println();
+		
+		try (CloseableResource cr = new CloseableResource()){
+			cr.exceptionWork(true);
+		} catch (WorkException e) {
+			e.printStackTrace();
+		} catch (CloseException e){
+			e.printStackTrace();
+		}
+	}
+
+}
+
+class CloseableResource implements AutoCloseable{
+
+	public void exceptionWork(boolean exception) throws WorkException{
+		System.out.println("exceptionWork (" + exception + ") 가 호출됨");
+		
+		if(exception)
+			throw new WorkException("WorkException발생!!!");
+	}
+	
+	public void close() throws CloseException{
+		System.out.println("close()가 호출됨");a
+		throw new CloseException("CloseException 발생");
+	}
+}
+
+class WorkException extends Exception{
+	WorkException(String msg){
+		super(msg);
+	}
+}
+
+class CloseException extends Exception{
+	CloseException(String msg){
+		super(msg);
+	}
+}
+```
+결과
+```
+exceptionWork (false) 가 호출됨
+close()가 호출됨
+
+CloseException: CloseException 발생
+exceptionWork (true) 가 호출됨
+	at CloseableResource.close(TryWithResourceEx.java:37)
+	at TryWithResourceEx.main(TryWithResourceEx.java:7)
+close()가 호출됨
+WorkException: WorkException발생!!!
+	at CloseableResource.exceptionWork(TryWithResourceEx.java:32)
+	at TryWithResourceEx.main(TryWithResourceEx.java:16)
+	Suppressed: CloseException: CloseException 발생
+		at CloseableResource.close(TryWithResourceEx.java:37)
+		at TryWithResourceEx.main(TryWithResourceEx.java:17)
+```
+두 예외가 동시에 발생할 수 없기 때문에, 실제 발생한 예외를 WorkException으로 하고,
+CloseException은 억제된 예외로 다룬다. 억제된 예외에 대한 정보는 실제 발생한 예외인 WorkException에 저장된다.
+
+만일 기존의 try-catch문을 사용했다면, 먼저 발생한 WorkException은 무시되고, 마지막으로 발생한 CloseException에 대한 내용만 출력되었을 것이다.
+
+***
+
+**예외 되던지기**
+
+한 메서드에서 발생할 수 있는 예외가 여럿인 경우, 몇개는 try-catch문을 통해서 메서드 내에서 자체적으로 처리하고, 그 나머지는 선언부에 지정하여 호출한 메서드에서 처리하도록 함으로써, 양쪽에서 나눠서 처리되도록 할 수 있다.
+
+주의해야할 점은 예외가 발생할 메서드에서는 try-catch문을 사용해서 예외처리를 해줌과 동시에 메서드의 선언부에 발생할 예외를 throws에 지정해줘야 한다는 것이다.
+
+```java
+class ExceptionEx17 {
+	public static void main(String[] args) {
+		try {
+			method1();
+		} catch (Exception e) {
+			System.out.println("main메서드에서 예외가 처리되었습니다.");
+		}
+	}
+	
+	static void method1() throws Exception{
+		try {
+			throw new Exception();
+		} catch (Exception e) {
+			System.out.println("method1 에서 예외가 처리되었습니다.");
+			throw e;
+		}
+	}
+}
+```
+결과
+```
+method1 에서 예외가 처리되었습니다.
+main메서드에서 예외가 처리되었습니다.
+```
