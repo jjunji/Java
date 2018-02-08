@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="Eatable"/>
+<fullyQualifiedTypeName name="GrapeComp"/>
+<fullyQualifiedTypeName name="FruitComp"/>
+<fullyQualifiedTypeName name="java.lang.IllegalAccessError"/>
+<fullyQualifiedTypeName name="java.lang.IllegalArgumentException"/>
+<fullyQualifiedTypeName name="Direction"/>
+<fullyQualifiedTypeName name="Transportation"/>
+<fullyQualifiedTypeName name="MyTransportation"/>
+</qualifiedTypeNameHistroy>

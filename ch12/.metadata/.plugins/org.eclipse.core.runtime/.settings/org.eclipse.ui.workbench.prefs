@@ -1,3 +1,4 @@
+//org.eclipse.ui.commands/state/org.eclipse.ui.navigator.resources.nested.changeProjectPresentation/org.eclipse.ui.commands.radioState=false
 ColorsAndFontsPreferencePage.expandedCategories=Torg.eclipse.ui.workbenchMisc
 ColorsAndFontsPreferencePage.selectedElement=Forg.eclipse.jface.textfont
 PLUGINS_NOT_ACTIVATED_ON_STARTUP=org.eclipse.m2e.discovery;
@@ -39,4 +40,3 @@ org.eclipse.jface.textfont=1|Consolas|12.0|0|WINDOWS|1|-20|0|0|0|400|0|0|0|0|3|2
 org.eclipse.mylyn.wikitext.ui.presentation.textFont=1|Consolas|12.0|0|WINDOWS|1|-20|0|0|0|400|0|0|0|0|3|2|1|49|Consolas;
 org.eclipse.recommenders.snipmatch.rcp.searchTextFont=1|Consolas|12.0|0|WINDOWS|1|-20|0|0|0|400|0|0|0|0|3|2|1|49|Consolas;
 org.eclipse.wst.sse.ui.textfont=1|Consolas|12.0|0|WINDOWS|1|-20|0|0|0|400|0|0|0|0|3|2|1|49|Consolas;
-overriddenByCSS=,ACTIVE_HYPERLINK_COLOR,CONFLICTING_COLOR,CONTENT_ASSIST_BACKGROUND_COLOR,CONTENT_ASSIST_FOREGROUND_COLOR,ERROR_COLOR,HYPERLINK_COLOR,INCOMING_COLOR,OUTGOING_COLOR,RESOLVED_COLOR,

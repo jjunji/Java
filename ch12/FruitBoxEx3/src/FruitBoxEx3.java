@@ -31,6 +31,8 @@ public class FruitBoxEx3 {
 		fruitBox.add(new Fruit());
 		fruitBox.add(new Apple());
 		fruitBox.add(new Grape());
+		//appleBox.add(new Fruit());
+		//appleBox.add(new Grape());
 		appleBox.add(new Apple());
 		appleBox.add(new Apple());
 		
