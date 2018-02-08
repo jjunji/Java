@@ -3,7 +3,12 @@
 <fullyQualifiedTypeName name="java.util.concurrent.ExecutionException"/>
 <fullyQualifiedTypeName name="ExceptionEx3"/>
 <fullyQualifiedTypeName name="ExceptionTest4"/>
-<fullyQualifiedTypeName name="java.lang.Exception"/>
 <fullyQualifiedTypeName name="ExceptionTest5"/>
 <fullyQualifiedTypeName name="ExceptionTest6"/>
+<fullyQualifiedTypeName name="java.lang.AutoCloseable"/>
+<fullyQualifiedTypeName name="TryWithResourceEx.CloseException"/>
+<fullyQualifiedTypeName name="java.lang.Void"/>
+<fullyQualifiedTypeName name="CloseableResource"/>
+<fullyQualifiedTypeName name="javax.xml.ws.WebServiceException"/>
+<fullyQualifiedTypeName name="java.lang.Exception"/>
 </qualifiedTypeNameHistroy>
