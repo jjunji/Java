@@ -15,12 +15,12 @@ public class AnnotationEx5 {
 @interface TestInfo{
 	int count() default 1;
 	String testedBy();
-	String[] testTools() default "JUnit";
-	TestType testType() default TestType.FIRST;
+	String[] testTools(); default "JUnit"
+	TestType testType() default TestType.FIRST
 }
 
 @Retention(RetentionPolicy.RUNTIME)
-@interface DateTime{
+interface DateTime{
 	String yymmdd();
 	String hhmmss();
 }

@@ -9,4 +9,7 @@
 <fullyQualifiedTypeName name="Direction"/>
 <fullyQualifiedTypeName name="Transportation"/>
 <fullyQualifiedTypeName name="MyTransportation"/>
+<fullyQualifiedTypeName name="java.lang.Deprecated"/>
+<fullyQualifiedTypeName name="java.lang.SuppressWarnings"/>
+<fullyQualifiedTypeName name="java.lang.annotation.RetentionPolicy"/>
 </qualifiedTypeNameHistroy>
