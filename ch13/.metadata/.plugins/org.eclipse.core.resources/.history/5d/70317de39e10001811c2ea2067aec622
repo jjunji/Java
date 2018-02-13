@@ -1,0 +1,42 @@
+public class ThreadEx1 {
+	public static void main(String[] args) {
+		Thread1 t1 = new Thread1();
+//		Thread2 t3 = new Thread2();
+//		t3.run();
+		
+		Runnable r = new Thread1();
+		Thread t2 = new Thread(r);
+		Runnable r2 = (Runnable) new test();
+		
+		//t1.start();
+		//t2.start();
+		r2.run();
+	}
+}
+
+class Thread1 extends Thread{
+
+	@Override
+	public void run() {
+		for(int i=0; i < 5; i++){
+			System.out.println(getName());
+		}
+	}
+	
+}
+
+class Thread2 implements Runnable{
+
+	@Override
+	public void run() {
+		for(int i=0; i<5; i++){
+			System.out.println(Thread.currentThread().getName());
+		}
+	}
+}
+
+class test implements Runnable{
+	void doTest(){
+		System.out.println("Test hahaha");
+	}
+}
